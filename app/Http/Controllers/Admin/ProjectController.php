@@ -10,13 +10,13 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $project = project::paginate(5);
+        $projects = project::paginate(5);
 
-        return view('admin.posts.index', compact('projects'));
+        return view('admin.projects.index', compact('projects'));
     }
 
     public function show(Project $project)
     {
-        return view('admin.posts.show', compact('project'));
+        return view('admin.projects.show', compact('project'));
     }
 }
