@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('title', 50);
             $table->date('date',);
-            $table->string('image', 200);
             $table->string('name', 50);
             $table->string('surname', 50);
             $table->text('description');
