@@ -21,7 +21,7 @@
                 <td>{{$project->name}}</td>
                 <td>{{$project->surname}}</td>
                 <td>
-                    <a class="btn btn-primary d-inline-blolck">View</a>
+                    <a class="btn btn-primary" href="{{ route('admin.projects.show', ['project' => $project->id]) }}">View</a>
                     <a class="btn btn-warning d-inline-block">Edit</a>
                     <a  class="btn btn-danger d-inline-block">Delete</a>
                     
@@ -35,4 +35,3 @@
 @endsection
 
 
-{{-- href="{{ route('admin.projects.show', ['project' => $project->id]) }} --}}
