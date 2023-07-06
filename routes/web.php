@@ -1,10 +1,11 @@
 <?php
 
+use App\Models\project;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Guest\PageController as GuestPageController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\PageController as AdminPageController;
-
+use App\Http\Controllers\Guest\PageController as GuestPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ use App\Http\Controllers\Admin\PageController as AdminPageController;
 
 Route::get('/', [GuestPageController::class, 'home'])->name('guest.home');
 
+
 Route::get('/admin', [AdminPagecontroller::class, 'dashboard'])->middleware(['auth', 'verified'])->name('admin.dashboard');
 
 Route::middleware('auth')
@@ -28,6 +30,11 @@ Route::middleware('auth')
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        Route::get('/', [AdminPageController::class, 'dashboard'])->name('dashboard');
+        Route::resource('projects', ProjectController::class);
     });
+
+
+
 
 require __DIR__ . '/auth.php';
