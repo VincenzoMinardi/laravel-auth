@@ -2,6 +2,6 @@
 
 @section('contents')
 
-<h1 class="text-center">Benvenuto </h1>
+<h1 class="text-center">Benvenuto Nuovo Utente </h1>
 
 @endsection

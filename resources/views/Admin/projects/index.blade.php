@@ -1,25 +1,38 @@
 @extends('admin.layouts.base')
 
 @section('contents')
-<div class="container">
-    <div class="row row-cols-3">
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Titolo</th>
+            <th class="w-50" scope="col">Descrizione</th>
+            <th scope="col">Data</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Cognome</th>
+        </tr>
+    </thead>
+    <tbody>
         @foreach ($projects as $project)
-        <div class="col">
-            <div class="card-body">
-                <h1 class="card-title">{{$project->title}}</h1>
-                <p class="card-text">{{$project->description}}</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">{{$project->date}}</li>
-                <li class="list-group-item">{{$project->name}}</li>
-                <li class="list-group-item">{{$project->surname}}</li>
-            </ul>
-            <div class="card-body">
-                {{-- <a class="btn btn-primary" href="{{ route('projects.show', ['project' => $project->id]) }}">VIEW</a> --}}
-            </div>
-        </div>
+            <tr>
+                <th scope="row">{{$project->title}}</th>
+                <td>{{$project->description}}</td>
+                <td>{{$project->date}}</td>
+                <td>{{$project->name}}</td>
+                <td>{{$project->surname}}</td>
+                <td>
+                    <a class="btn btn-primary d-inline-blolck">View</a>
+                    <a class="btn btn-warning d-inline-block">Edit</a>
+                    <a  class="btn btn-danger d-inline-block">Delete</a>
+                    
+                
+                </td>
+            </tr>
         @endforeach
-    </div>
-</div>
+    </tbody>
+</table>
 {{ $projects->links() }}
 @endsection
+
+
+{{-- href="{{ route('admin.projects.show', ['project' => $project->id]) }} --}}
