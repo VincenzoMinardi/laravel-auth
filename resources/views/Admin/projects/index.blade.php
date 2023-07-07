@@ -4,7 +4,7 @@
 @if (session('delete_success'))
         @php $project = session('delete_success') @endphp
         <div class="alert alert-danger">
-            Il progetto "{{ $project->title }}" è stato eliminato per sempre
+            The project "{{ $project->title }}" has been deleted forever
         </div>
     @endif
 <table class="table table-striped">
@@ -46,7 +46,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Are you sure?
+                Are you sure you want to delete?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
