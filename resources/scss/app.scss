@@ -51,56 +51,137 @@
 
 // Footer
 
-.container {
-    position: relative;
-    width: 250px;
-    /*  choose your size */
+.main {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-direction: column;
+    gap: 0.5em;
     margin-top: 6rem;
 }
 
-.container .button {
-    width: 50px;
-    height: 50px;
+.up {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    justify-content: center;
+}
+
+.down {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    justify-content: center;
+}
+
+.card1 {
+    width: 90px;
+    height: 90px;
+    outline: none;
     border: none;
-    background-color: #313638;
-    transition: 0.3s;
+    background: white;
+    border-radius: 90px 5px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+}
+
+.instagram {
+    margin-top: 1.5em;
+    margin-left: 1.2em;
+    fill: #cc39a4;
+}
+
+.card2 {
+    width: 90px;
+    height: 90px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 90px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+}
+
+.twitter {
+    margin-top: 1.5em;
+    margin-left: -0.9em;
+    fill: #03a9f4;
+}
+
+.card3 {
+    width: 90px;
+    height: 90px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 5px 90px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+}
+
+.github {
+    margin-top: -0.6em;
+    margin-left: 1.2em;
+}
+
+.card4 {
+    width: 90px;
+    height: 90px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 90px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+}
+
+.discord {
+    margin-top: -0.9em;
+    margin-left: -1.2em;
+    fill: #8c9eff;
+}
+
+.card1:hover {
     cursor: pointer;
+    scale: 1.1;
+    background-color: #cc39a4;
 }
 
-.icon {
-    width: 26px;
-    height: 26px;
-    fill: #fff;
+.card1:hover .instagram {
+    fill: white;
 }
 
-.container button:nth-child(1):hover {
-    background-color: #2753a7;
+.card2:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #03a9f4;
 }
 
-.container button:nth-child(2):hover {
-    background-color: #cd242b;
+.card2:hover .twitter {
+    fill: white;
 }
 
-.container button:nth-child(3):hover {
-    background-color: #55acee;
+.card3:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: black;
 }
 
-.container button:nth-child(4):hover {
-    background-color: #0274b3;
+.card3:hover .github {
+    fill: white;
 }
 
-.title {
-    color: gray;
-    font-weight: 700;
-    font-size: 17px;
-    position: absolute;
-    top: -35px;
-    left: 0;
+.card4:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #8c9eff;
 }
 
+.card4:hover .discord {
+    fill: white;
+}
 //   Botton Dashboard
 
 .button-dashboard {
@@ -111,7 +192,7 @@
     position: relative;
     /* overflow: hidden; */
     transition: 500ms;
-    left: 51.5rem;
+    left: 52.5rem;
     top: 3rem;
 }
 
