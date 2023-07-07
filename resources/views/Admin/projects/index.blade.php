@@ -1,15 +1,20 @@
 @extends('admin.layouts.base')
 
 @section('contents')
-
+@if (session('delete_success'))
+        @php $project = session('delete_success') @endphp
+        <div class="alert alert-danger">
+            Il progetto "{{ $project->title }}" è stato eliminato per sempre
+        </div>
+    @endif
 <table class="table table-striped">
     <thead>
         <tr>
-            <th scope="col">Titolo</th>
-            <th class="w-50" scope="col">Descrizione</th>
-            <th scope="col">Data</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Cognome</th>
+            <th scope="col">Title</th>
+            <th class="w-50" scope="col">Description</th>
+            <th scope="col">Date</th>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
         </tr>
     </thead>
     <tbody>
@@ -22,15 +27,45 @@
                 <td>{{$project->surname}}</td>
                 <td>
                     <a class="btn btn-primary" href="{{ route('admin.projects.show', ['project' => $project->id]) }}">View</a>
-                    <a class="btn btn-warning d-inline-block">Edit</a>
-                    <a  class="btn btn-danger d-inline-block">Delete</a>
+                    <a class="btn btn-warning" href="{{ route('admin.projects.edit', ['project' => $project->id]) }}">Edit</a>
+                    <button type="button" class="btn btn-danger js-delete" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="{{ $project->id }}">
+                        Delete
+                    </button>
                     
-                
                 </td>
             </tr>
+            
         @endforeach
     </tbody>
 </table>
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="deleteModalLabel">Delete confirmation</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <form
+                    action=""
+                    data-template="{{ route('admin.projects.destroy', ['project' => '*****']) }}"
+                    method="post"
+                    class="d-inline-block"
+                    id="confirm-delete"
+                >
+                    @csrf
+                    @method('delete')
+                    <button class="btn btn-danger">Yes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<a class="btn btn-warning" href="{{ route('admin.projects.create', ['project' => $project->id]) }}">New</a>
 {{ $projects->links() }}
 @endsection
 
