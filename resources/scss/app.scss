@@ -1,7 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 
 // button
-button {
+.button {
     font-size: 18px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -19,7 +19,7 @@ button {
     z-index: 1;
 }
 
-button:before {
+.button:before {
     transition: 0.5s all ease;
     position: absolute;
     top: 0;
@@ -32,20 +32,20 @@ button:before {
     z-index: -1;
 }
 
-button:hover,
-button:focus {
+.button:hover,
+.button:focus {
     color: white;
 }
 
-button:hover:before,
-button:focus:before {
+.button:hover:before,
+.button:focus:before {
     transition: 0.5s all ease;
     left: 0;
     right: 0;
     opacity: 1;
 }
 
-button:active {
+.button:active {
     transform: scale(0.9);
 }
 
@@ -61,7 +61,7 @@ button:active {
     margin-top: 6rem;
 }
 
-.container button {
+.container .button {
     width: 50px;
     height: 50px;
     border: none;
